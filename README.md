@@ -16,5 +16,5 @@ How to use it:
 
 
 Special thanks to [Deanout](https://github.com/Deanout) for his tutorial and
-[Rails 7 template](https://github.com/Deanout/react-esbuild-rails) on which this
+[React/esbuild/Rails template](https://github.com/Deanout/react-esbuild-rails) on which this
 is based!
