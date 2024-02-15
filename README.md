@@ -11,9 +11,7 @@ How to use it:
 - Clone this template
 - Run `bundle install`
 - Run `yarn install`
-- Run `yarn add @tldraw/tldraw@beta`
-- Run `yarn add react react-dom`
-- Run `rails javascript:install:esbuild`
+- Run `bin/dev` to see the TLDraw whiteboard base example on the root view
 
 
 Special thanks to [Deanout](https://github.com/Deanout) for his tutorial and
