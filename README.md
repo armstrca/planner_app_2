@@ -10,6 +10,7 @@ How to use it:
 
 - Clone this template
 - Run `bundle install`
+- Run `yarn add @tldraw/tldraw@beta`
 - Run `yarn install`
 - Run `bin/dev` to see the TLDraw whiteboard base example on the root view
 
