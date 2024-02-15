@@ -13,6 +13,7 @@ How to use it:
 - Run `yarn add @tldraw/tldraw@beta`
 - Run `yarn install`
 - Run `bin/dev` to see the TLDraw whiteboard base example on the root view
+- Customize as you like!
 
 
 Special thanks to [Deanout](https://github.com/Deanout) for his tutorial and
