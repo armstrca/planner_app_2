@@ -37,36 +37,36 @@ end
 
 # AppDev Gems
 # ===========
-gem "appdev_support"
-gem "awesome_print"
-gem "devise"
-gem "dotenv-rails"
-gem "faker"
-gem "htmlbeautifier"
-gem "http"
+# gem "appdev_support"
+# gem "awesome_print"
+# gem "devise"
+# gem "dotenv-rails"
+# gem "faker"
+# gem "htmlbeautifier"
+# gem "http"
 gem "sqlite3", "~> 1.4"
-gem "table_print"
+# gem "table_print"
 
 group :development do
-  gem "annotate"
-  gem "better_errors"
-  gem "binding_of_caller"
-  gem "draft_generators"
-  gem "grade_runner"
-  gem "pry-rails"
-  gem "rails_db"
-  gem "rails-erd"
-  gem "rufo"
-  gem "specs_to_readme"
-  gem "web_git"
+  # gem "annotate"
+  # gem "better_errors"
+  # gem "binding_of_caller"
+  # gem "draft_generators"
+  # gem "grade_runner"
+  # gem "pry-rails"
+  # gem "rails_db"
+  # gem "rails-erd"
+  # gem "rufo"
+  # gem "specs_to_readme"
+  # gem "web_git"
 end
 
 group :development, :test do
-  gem "rspec-rails", "~> 6.0.0"
+  # gem "rspec-rails", "~> 6.0.0"
 end
 
 group :test do
-  gem "draft_matchers" #, "0.0.2"#path: "../../my_stuff/draft_matchers"
-  gem "rspec-html-matchers"
-  gem "webmock"
+  # gem "draft_matchers" #, "0.0.2"#path: "../../my_stuff/draft_matchers"
+  # gem "rspec-html-matchers"
+  # gem "webmock"
 end
