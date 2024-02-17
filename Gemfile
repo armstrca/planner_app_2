@@ -18,6 +18,7 @@ gem "bootsnap", require: false
 gem "jsbundling-rails"
 # gem "sassc-rails"
 # gem "image_processing", "~> 1.2"
+gem 'rails_live_reload'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
