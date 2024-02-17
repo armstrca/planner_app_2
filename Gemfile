@@ -14,6 +14,8 @@ gem "rails", "~> 7.0.4", ">= 7.0.4.3"
 gem "redis", "~> 4.0"
 # gem "bcrypt", "~> 3.1.7"
 # gem "image_processing", "~> 1.2"
+gem 'rails_live_reload'
+
 # gem "kredis"
 # gem "rack-mini-profiler"
 # gem "sassc-rails"

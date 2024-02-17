@@ -13,5 +13,9 @@
   "scripts": {
     "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets --loader:.js=jsx"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "workspaces": [
+    "/workspaces/planner_app_2",
+    "@tldraw/*"
+  ]
 }
