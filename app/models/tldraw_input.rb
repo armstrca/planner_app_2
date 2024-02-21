@@ -1,3 +1,4 @@
+Found no changes, using resolution from the lockfile
 # == Schema Information
 #
 # Table name: tldraw_inputs
@@ -11,12 +12,11 @@
 class TldrawInput < ApplicationRecord
   belongs_to :planner, required: true, class_name: "Planner", foreign_key: "planner_id", counter_cache: true
 
+  has_one :weekly, through: :planner, source: :weeklies
 
-has_one  :weekly, through: :planner, source: :weeklies
+  has_one :daily, through: :planner, source: :dailies
 
-has_one  :daily, through: :planner, source: :dailies
+  has_one :extra, through: :planner, source: :extras
 
-has_one  :extra, through: :planner, source: :extras
-
-has_one  :monthly, through: :planner, source: :monthlies
+  has_one :monthly, through: :planner, source: :monthlies
 end

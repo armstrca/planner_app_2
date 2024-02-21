@@ -22,11 +22,11 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
-  has_many  :planners, class_name: "Planner", foreign_key: "user_id", dependent: :destroy
+  has_many :planners, class_name: "Planner", foreign_key: "user_id", dependent: :destroy
 
   has_many :monthlies, through: :planners, source: :monthlies
 
-has_many :weeklies, through: :planners, source: :weeklies
+  has_many :weeklies, through: :planners, source: :weeklies
 
-has_many :dailies, through: :planners, source: :dailies
+  has_many :dailies, through: :planners, source: :dailies
 end
