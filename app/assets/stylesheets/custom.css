@@ -18,3 +18,10 @@
 body {
   font-family: 'Inter', sans-serif;
 }
+
+.tl-background {
+	position: absolute;
+	background-color: transparent;
+	inset: 0px;
+	z-index: var(--layer-background);
+}

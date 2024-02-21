@@ -3,23 +3,23 @@ FROM buildpack-deps:focal
 ### base ###
 RUN yes | unminimize \
     && apt-get install -yq \
-        acl \
-        zip \
-        unzip \
-        bash-completion \
-        build-essential \
-        htop \
-        jq \
-        less \
-        locales \
-        man-db \
-        nano \
-        software-properties-common \
-        sudo \
-        time \
-        vim \
-        multitail \
-        lsof \
+    acl \
+    zip \
+    unzip \
+    bash-completion \
+    build-essential \
+    htop \
+    jq \
+    less \
+    locales \
+    man-db \
+    nano \
+    software-properties-common \
+    sudo \
+    time \
+    vim \
+    multitail \
+    lsof \
     && locale-gen en_US.UTF-8 \
     && mkdir /var/lib/apt/dazzle-marks \
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/*
@@ -57,11 +57,11 @@ RUN curl -sSL https://rvm.io/mpapis.asc | gpg --import - \
     && curl -sSL https://rvm.io/pkuczynski.asc | gpg --import - \
     && curl -fsSL https://get.rvm.io | bash -s stable \
     && bash -lc " \
-        rvm requirements \
-        && rvm install 3.3.0 \
-        && rvm use 3.3.0 --default \
-        && rvm rubygems current \
-        && gem install bundler:2.4.6 --no-document" \
+    rvm requirements \
+    && rvm install 3.2.1 \
+    && rvm use 3.2.1 --default \
+    && rvm rubygems current \
+    && gem install bundler:2.4.6 --no-document" \
     && echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*' >> /home/student/.bashrc.d/70-ruby
 RUN echo "rvm_gems_path=/home/student/.rvm" > ~/.rvmrc
 
@@ -73,7 +73,7 @@ USER student
 
 # AppDev stuff
 RUN sudo wget -qO /usr/bin/install-packages "https://gist.githubusercontent.com/jelaniwoods/d5cc8157a0de0f449de748f75e2e182e/raw/c45b0f2947975ff7bb53cbddb8a2fe2e6241db8e/install-packages" \
-  && sudo chmod 775 /usr/bin/install-packages
+    && sudo chmod 775 /usr/bin/install-packages
 RUN /bin/bash -l -c "gem install htmlbeautifier rufo -N"
 
 WORKDIR /rails-template
@@ -109,15 +109,15 @@ ENV PATH="$PATH:/usr/lib/postgresql/12/bin"
 ENV PGDATA="/workspaces/.pgsql/data"
 RUN sudo mkdir -p $PGDATA
 RUN mkdir -p $PGDATA ~/.pg_ctl/bin ~/.pg_ctl/sockets \
- && printf '#!/bin/bash\n[ ! -d $PGDATA ] && mkdir -p $PGDATA && initdb -D $PGDATA\npg_ctl -D $PGDATA -l ~/.pg_ctl/log -o "-k ~/.pg_ctl/sockets" start\n' > ~/.pg_ctl/bin/pg_start \
- && printf '#!/bin/bash\npg_ctl -D $PGDATA -l ~/.pg_ctl/log -o "-k ~/.pg_ctl/sockets" stop\n' > ~/.pg_ctl/bin/pg_stop \
- && chmod +x ~/.pg_ctl/bin/* \
- && sudo addgroup dev \
- && sudo adduser student dev \
- && sudo chgrp -R dev $PGDATA \
- && sudo chmod -R 775 $PGDATA \
- && sudo setfacl -dR -m g:staff:rwx $PGDATA \
- && sudo chmod 777 /var/run/postgresql
+    && printf '#!/bin/bash\n[ ! -d $PGDATA ] && mkdir -p $PGDATA && initdb -D $PGDATA\npg_ctl -D $PGDATA -l ~/.pg_ctl/log -o "-k ~/.pg_ctl/sockets" start\n' > ~/.pg_ctl/bin/pg_start \
+    && printf '#!/bin/bash\npg_ctl -D $PGDATA -l ~/.pg_ctl/log -o "-k ~/.pg_ctl/sockets" stop\n' > ~/.pg_ctl/bin/pg_stop \
+    && chmod +x ~/.pg_ctl/bin/* \
+    && sudo addgroup dev \
+    && sudo adduser student dev \
+    && sudo chgrp -R dev $PGDATA \
+    && sudo chmod -R 775 $PGDATA \
+    && sudo setfacl -dR -m g:staff:rwx $PGDATA \
+    && sudo chmod 777 /var/run/postgresql
 ENV PATH="$PATH:$HOME/.pg_ctl/bin"
 # ENV DATABASE_URL="postgresql://student@localhost"
 ENV PGHOSTADDR="127.0.0.1"
@@ -157,9 +157,9 @@ RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add - \
 
 # Install Redis.
 RUN sudo apt-get update \
- && sudo apt-get install -y \
-  redis-server=5:5.0.7-2ubuntu0.1 \
- && sudo rm -rf /var/lib/apt/lists/*
+    && sudo apt-get install -y \
+    redis-server=5:5.0.7-2ubuntu0.1 \
+    && sudo rm -rf /var/lib/apt/lists/*
 
 # Install heroku-cli
 RUN /bin/bash -l -c "curl https://cli-assets.heroku.com/install.sh | sh"
@@ -189,16 +189,16 @@ RUN git config --global push.default upstream \
 # Alias 'git' to 'g'
 # RUN echo 'export PATH="$PATH:$GITPOD_REPO_ROOT/bin"' >> ~/.bashrc
 RUN echo "# No arguments: 'git status'\n\
-# With arguments: acts like 'git'\n\
-g() {\n\
-  if [[ \$# > 0 ]]; then\n\
+    # With arguments: acts like 'git'\n\
+    g() {\n\
+    if [[ \$# > 0 ]]; then\n\
     git \$@\n\
-  else\n\
+    else\n\
     git status\n\
-  fi\n\
-}\n# Complete g like git\n\
-source /usr/share/bash-completion/completions/git\n\
-__git_complete g __git_main" >> ~/.bash_aliases
+    fi\n\
+    }\n# Complete g like git\n\
+    source /usr/share/bash-completion/completions/git\n\
+    __git_complete g __git_main" >> ~/.bash_aliases
 
 # Alias bundle exec to be
 RUN echo "alias be='bundle exec'" >> ~/.bash_aliases

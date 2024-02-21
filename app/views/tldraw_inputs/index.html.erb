@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all tldraw inputs
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new tldraw input
+    </h2>
+
+    <form action="/insert_tldraw_input" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="planner_id_box">
+          Planner
+        </label>
+
+        <input type="text" id="planner_id_box" name="query_planner_id">
+      </div>
+
+      <button>
+        Create tldraw input
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Planner
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_tldraw_inputs.each do |a_tldraw_input| %>
+      <tr>
+        <td>
+          <%= a_tldraw_input.id %>
+        </td>
+
+        <td>
+          <%= a_tldraw_input.user_id %>
+        </td>
+
+        <td>
+          <%= a_tldraw_input.planner_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_tldraw_input.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_tldraw_input.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/tldraw_inputs/<%= a_tldraw_input.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,230 @@
+<div>
+  <div>
+    <h1>
+      List of all planners
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new planner
+    </h2>
+
+    <form action="/insert_planner" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="monthly_id_box">
+          Monthly
+        </label>
+
+        <input type="text" id="monthly_id_box" name="query_monthly_id">
+      </div>
+
+      <div>
+        <label for="weekly_id_box">
+          Weekly
+        </label>
+
+        <input type="text" id="weekly_id_box" name="query_weekly_id">
+      </div>
+
+      <div>
+        <label for="daily_id_box">
+          Daily
+        </label>
+
+        <input type="text" id="daily_id_box" name="query_daily_id">
+      </div>
+
+      <div>
+        <label for="page_order_box">
+          Page order
+        </label>
+
+        <input type="text" id="page_order_box" name="query_page_order">
+      </div>
+
+      <div>
+        <label for="monthlies_count_box">
+          Monthlies count
+        </label>
+
+        <input type="text" id="monthlies_count_box" name="query_monthlies_count">
+      </div>
+
+      <div>
+        <label for="weeklies_count_box">
+          Weeklies count
+        </label>
+
+        <input type="text" id="weeklies_count_box" name="query_weeklies_count">
+      </div>
+
+      <div>
+        <label for="dailies_count_box">
+          Dailies count
+        </label>
+
+        <input type="text" id="dailies_count_box" name="query_dailies_count">
+      </div>
+
+      <div>
+        <label for="extras_count_box">
+          Extras count
+        </label>
+
+        <input type="text" id="extras_count_box" name="query_extras_count">
+      </div>
+
+      <div>
+        <label for="tldraw_inputs_count_box">
+          Tldraw inputs count
+        </label>
+
+        <input type="text" id="tldraw_inputs_count_box" name="query_tldraw_inputs_count">
+      </div>
+
+      <button>
+        Create planner
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Monthly
+        </th>
+
+        <th>
+          Weekly
+        </th>
+
+        <th>
+          Daily
+        </th>
+
+        <th>
+          Page order
+        </th>
+
+        <th>
+          Monthlies count
+        </th>
+
+        <th>
+          Weeklies count
+        </th>
+
+        <th>
+          Dailies count
+        </th>
+
+        <th>
+          Extras count
+        </th>
+
+        <th>
+          Tldraw inputs count
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_planners.each do |a_planner| %>
+      <tr>
+        <td>
+          <%= a_planner.id %>
+        </td>
+
+        <td>
+          <%= a_planner.user_id %>
+        </td>
+
+        <td>
+          <%= a_planner.monthly_id %>
+        </td>
+
+        <td>
+          <%= a_planner.weekly_id %>
+        </td>
+
+        <td>
+          <%= a_planner.daily_id %>
+        </td>
+
+        <td>
+          <%= a_planner.page_order %>
+        </td>
+
+        <td>
+          <%= a_planner.monthlies_count %>
+        </td>
+
+        <td>
+          <%= a_planner.weeklies_count %>
+        </td>
+
+        <td>
+          <%= a_planner.dailies_count %>
+        </td>
+
+        <td>
+          <%= a_planner.extras_count %>
+        </td>
+
+        <td>
+          <%= a_planner.tldraw_inputs_count %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_planner.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_planner.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/planners/<%= a_planner.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Weekly #<%= @the_weekly.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/weeklies">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_weekly/<%= @the_weekly.id %>">
+          Delete weekly
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Planner
+      </dt>
+      <dd>
+        <%= @the_weekly.planner_id %>
+      </dd>
+
+      <dt>
+        Html
+      </dt>
+      <dd>
+        <%= @the_weekly.html %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_weekly.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_weekly.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit weekly
+    </h2>
+
+    <form action="/modify_weekly/<%= @the_weekly.id %>"  method="post" >
+      <div>
+        <label for="planner_id_box">
+          Planner
+        </label>
+
+        <input type="text" id="planner_id_box" name="query_planner_id" value="<%= @the_weekly.planner_id %>">
+      </div>
+
+      <div>
+        <label for="html_box">
+          Html
+        </label>
+
+        <input type="text" id="html_box" name="query_html" value="<%= @the_weekly.html %>">
+      </div>
+
+      <button>
+        Update weekly
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

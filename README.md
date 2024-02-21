@@ -3,7 +3,7 @@
 This is a base Ruby on Rails repository including a functioning TLDRaw
 installation and example view. It uses esbuild for bundling as well as stimulus.
 
-- Ruby version: `3.2.3`
+- Ruby version: `3.3.0`
 - Rails version: `7.0.4.3`
 
 How to use it:

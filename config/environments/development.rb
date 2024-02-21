@@ -4,7 +4,7 @@ Rails.application.configure do
   # Allow server to be hosted on any URL
   config.hosts.clear
   # Allow better_errors to work in online IDE
-  config.web_console.whitelisted_ips = "0.0.0.0/0.0.0.0"
+  config.web_console.allowed_ips = "0.0.0.0/0.0.0.0"
   BetterErrors::Middleware.allow_ip! "0.0.0.0/0.0.0.0"
   # Auto-connect to database when rails console opens
   console do
@@ -22,6 +22,8 @@ Rails.application.configure do
 
   # Show full error reports.
   config.consider_all_requests_local = true
+
+       config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Enable server timing
   config.server_timing = true

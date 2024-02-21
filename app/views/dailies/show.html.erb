@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Daily #<%= @the_daily.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/dailies">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_daily/<%= @the_daily.id %>">
+          Delete daily
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Planner
+      </dt>
+      <dd>
+        <%= @the_daily.planner_id %>
+      </dd>
+
+      <dt>
+        Html
+      </dt>
+      <dd>
+        <%= @the_daily.html %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_daily.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_daily.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit daily
+    </h2>
+
+    <form action="/modify_daily/<%= @the_daily.id %>"  method="post" >
+      <div>
+        <label for="planner_id_box">
+          Planner
+        </label>
+
+        <input type="text" id="planner_id_box" name="query_planner_id" value="<%= @the_daily.planner_id %>">
+      </div>
+
+      <div>
+        <label for="html_box">
+          Html
+        </label>
+
+        <input type="text" id="html_box" name="query_html" value="<%= @the_daily.html %>">
+      </div>
+
+      <button>
+        Update daily
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

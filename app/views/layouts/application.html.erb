@@ -1,5 +1,5 @@
 
-<html>
+
   <head>
 
     <title>Calvy's Agendy</title>
@@ -8,13 +8,150 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <script src="https://cdn.tailwindcss.com"></script>
     <%= stylesheet_link_tag "application" %>
     <%= stylesheet_link_tag "custom" %>
-    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+
+
+    <style>
+      .grey-line {
+        border-bottom: 1px solid #aaa;
+        height: 1rem;
+        width: 100%;
+      }
+      .grey-line-dashed {
+        border-bottom: 1px dashed #aaa;
+        height: 1rem;
+        width: 100%;
+      }
+      .top-line {
+        border-top: 4px solid #bb0000;
+        margin-top: -14px;
+      }
+      .bottom-line {
+        border-top: 4px solid #bb0000;
+        margin-top: 18px;
+      }
+      .grey-line:focus {
+        outline: none;
+      }
+      .day-line:focus {
+        outline: none;
+      }
+      .date-circle {
+        position: absolute;
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: rgba(255, 0, 0, 0.3);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        margin-top: 3px;
+      }
+      .input-wrapper {
+        position: relative;
+      }
+      body {
+        margin: 0;
+        z-index: 0;
+      }
+      .dashed {
+        border-bottom: 2px dashed lightgrey;
+      }
+      .solid {
+        border-bottom: 2px solid black;
+      }
+      .solid-red {
+        border-bottom: 2px solid rgb(255, 0, 0);
+        opacity: 25%;
+      }
+      .calendar {
+        background-color: #f3f4f6;
+        height: 100px; /* Placeholder height */
+      }
+      .canvas {
+        background-color: #ffffff;
+        height: 200px; /* Placeholder height */
+      }
+      .vertical-line {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        border-left: 2px solid black;
+      }
+      .calendar2-grid,
+      .calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        grid-template-rows: repeat(10, minmax(0, 1fr)); /* Ensure 10 rows */
+        gap: 0.15rem;
+        padding: 0.25rem;
+        border-radius: 0.25rem;
+        background-color: rgba(255, 0, 0, 0.208);
+      }
+      .calendar2-day,
+      .calendar-day {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        color: #374151;
+      }
+      .calendar2-date,
+      .calendar-date {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.5rem;
+        color: #1f2937;
+        border-radius: 0.25rem;
+      }
+      .calendar2-cell,
+      .calendar-cell {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 5px;
+        font-size: 0.6rem;
+        font-weight: 500;
+        color: #000000;
+        border-radius: 0.25rem;
+      }
+      .calendar2-header,
+      .calendar-header {
+        font-weight: 500;
+        font-size: 0.75rem;
+      }
+      .calendar2-line,
+      .calendar-line {
+        border-bottom: 1px solid black;
+        width: 100%;
+        height: 1rem;
+        margin-top: -14px;
+      }
+    </style>
   </head>
 
   <body>
+         <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
-</html>
+
+
+    

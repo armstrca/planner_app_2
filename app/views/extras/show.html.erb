@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      Extra #<%= @the_extra.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/extras">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_extra/<%= @the_extra.id %>">
+          Delete extra
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Planner
+      </dt>
+      <dd>
+        <%= @the_extra.planner_id %>
+      </dd>
+
+      <dt>
+        Html
+      </dt>
+      <dd>
+        <%= @the_extra.html %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_extra.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_extra.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit extra
+    </h2>
+
+    <form action="/modify_extra/<%= @the_extra.id %>"  method="post" >
+      <div>
+        <label for="planner_id_box">
+          Planner
+        </label>
+
+        <input type="text" id="planner_id_box" name="query_planner_id" value="<%= @the_extra.planner_id %>">
+      </div>
+
+      <div>
+        <label for="html_box">
+          Html
+        </label>
+
+        <input type="text" id="html_box" name="query_html" value="<%= @the_extra.html %>">
+      </div>
+
+      <button>
+        Update extra
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
