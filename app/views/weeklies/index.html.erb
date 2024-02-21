@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all weeklies
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new weekly
+    </h2>
+
+    <form action="/insert_weekly" method="post">
+      <div>
+        <label for="planner_id_box">
+          Planner
+        </label>
+
+        <input type="text" id="planner_id_box" name="query_planner_id">
+      </div>
+
+      <div>
+        <label for="html_box">
+          Html
+        </label>
+
+        <input type="text" id="html_box" name="query_html">
+      </div>
+
+      <button>
+        Create weekly
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Planner
+        </th>
+
+        <th>
+          Html
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_weeklies.each do |a_weekly| %>
+      <tr>
+        <td>
+          <%= a_weekly.id %>
+        </td>
+
+        <td>
+          <%= a_weekly.planner_id %>
+        </td>
+
+        <td>
+          <%= a_weekly.html %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_weekly.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_weekly.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/weeklies/<%= a_weekly.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

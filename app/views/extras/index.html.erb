@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all extras
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new extra
+    </h2>
+
+    <form action="/insert_extra" method="post">
+      <div>
+        <label for="planner_id_box">
+          Planner
+        </label>
+
+        <input type="text" id="planner_id_box" name="query_planner_id">
+      </div>
+
+      <div>
+        <label for="html_box">
+          Html
+        </label>
+
+        <input type="text" id="html_box" name="query_html">
+      </div>
+
+      <button>
+        Create extra
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Planner
+        </th>
+
+        <th>
+          Html
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_extras.each do |an_extra| %>
+      <tr>
+        <td>
+          <%= an_extra.id %>
+        </td>
+
+        <td>
+          <%= an_extra.planner_id %>
+        </td>
+
+        <td>
+          <%= an_extra.html %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_extra.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_extra.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/extras/<%= an_extra.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

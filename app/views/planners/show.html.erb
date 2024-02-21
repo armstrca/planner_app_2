@@ -1,0 +1,206 @@
+<div>
+  <div>
+    <h1>
+      Planner #<%= @the_planner.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/planners">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_planner/<%= @the_planner.id %>">
+          Delete planner
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_planner.user_id %>
+      </dd>
+
+      <dt>
+        Monthly
+      </dt>
+      <dd>
+        <%= @the_planner.monthly_id %>
+      </dd>
+
+      <dt>
+        Weekly
+      </dt>
+      <dd>
+        <%= @the_planner.weekly_id %>
+      </dd>
+
+      <dt>
+        Daily
+      </dt>
+      <dd>
+        <%= @the_planner.daily_id %>
+      </dd>
+
+      <dt>
+        Page order
+      </dt>
+      <dd>
+        <%= @the_planner.page_order %>
+      </dd>
+
+      <dt>
+        Monthlies count
+      </dt>
+      <dd>
+        <%= @the_planner.monthlies_count %>
+      </dd>
+
+      <dt>
+        Weeklies count
+      </dt>
+      <dd>
+        <%= @the_planner.weeklies_count %>
+      </dd>
+
+      <dt>
+        Dailies count
+      </dt>
+      <dd>
+        <%= @the_planner.dailies_count %>
+      </dd>
+
+      <dt>
+        Extras count
+      </dt>
+      <dd>
+        <%= @the_planner.extras_count %>
+      </dd>
+
+      <dt>
+        Tldraw inputs count
+      </dt>
+      <dd>
+        <%= @the_planner.tldraw_inputs_count %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_planner.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_planner.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit planner
+    </h2>
+
+    <form action="/modify_planner/<%= @the_planner.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_planner.user_id %>">
+      </div>
+
+      <div>
+        <label for="monthly_id_box">
+          Monthly
+        </label>
+
+        <input type="text" id="monthly_id_box" name="query_monthly_id" value="<%= @the_planner.monthly_id %>">
+      </div>
+
+      <div>
+        <label for="weekly_id_box">
+          Weekly
+        </label>
+
+        <input type="text" id="weekly_id_box" name="query_weekly_id" value="<%= @the_planner.weekly_id %>">
+      </div>
+
+      <div>
+        <label for="daily_id_box">
+          Daily
+        </label>
+
+        <input type="text" id="daily_id_box" name="query_daily_id" value="<%= @the_planner.daily_id %>">
+      </div>
+
+      <div>
+        <label for="page_order_box">
+          Page order
+        </label>
+
+        <input type="text" id="page_order_box" name="query_page_order" value="<%= @the_planner.page_order %>">
+      </div>
+
+      <div>
+        <label for="monthlies_count_box">
+          Monthlies count
+        </label>
+
+        <input type="text" id="monthlies_count_box" name="query_monthlies_count" value="<%= @the_planner.monthlies_count %>">
+      </div>
+
+      <div>
+        <label for="weeklies_count_box">
+          Weeklies count
+        </label>
+
+        <input type="text" id="weeklies_count_box" name="query_weeklies_count" value="<%= @the_planner.weeklies_count %>">
+      </div>
+
+      <div>
+        <label for="dailies_count_box">
+          Dailies count
+        </label>
+
+        <input type="text" id="dailies_count_box" name="query_dailies_count" value="<%= @the_planner.dailies_count %>">
+      </div>
+
+      <div>
+        <label for="extras_count_box">
+          Extras count
+        </label>
+
+        <input type="text" id="extras_count_box" name="query_extras_count" value="<%= @the_planner.extras_count %>">
+      </div>
+
+      <div>
+        <label for="tldraw_inputs_count_box">
+          Tldraw inputs count
+        </label>
+
+        <input type="text" id="tldraw_inputs_count_box" name="query_tldraw_inputs_count" value="<%= @the_planner.tldraw_inputs_count %>">
+      </div>
+
+      <button>
+        Update planner
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
