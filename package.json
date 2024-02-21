@@ -17,5 +17,9 @@
   "workspaces": [
     "/workspaces/planner_app_2",
     "@tldraw/*"
-  ]
+  ],
+  "devDependencies": {
+    "@prettier/plugin-ruby": "^4.0.4",
+    "prettier": "^3.2.5"
+  }
 }

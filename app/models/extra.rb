@@ -11,5 +11,5 @@
 class Extra < ApplicationRecord
   belongs_to :planner, required: true, class_name: "Planner", foreign_key: "planner_id", counter_cache: true
 
-has_one  :tldraw_input, through: :planner, source: :tldraw_inputs
+  has_one :tldraw_input, through: :planner, source: :tldraw_inputs
 end

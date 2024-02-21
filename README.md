@@ -14,7 +14,6 @@ How to use it:
 - Run `bin/dev` to see the TLDraw whiteboard base example on the root view
 - Customize as you like!
 
-
 Special thanks to [Deanout](https://github.com/Deanout) for his tutorial and
 [React/esbuild/Rails template](https://github.com/Deanout/react-esbuild-rails) on which this
 is based!

@@ -45,7 +45,6 @@ group :development do
   gem "pry-rails"
   gem "rails_db"
   gem "rails-erd"
-  gem "rufo"
   gem "specs_to_readme"
   gem "web_git"
 end
@@ -64,7 +63,7 @@ gem "awesome_print"
 gem "devise"
 gem "dotenv-rails"
 gem "faker"
-gem "htmlbeautifier"
 gem "http"
 gem "sqlite3", "~> 1.4"
 gem "table_print"
+gem 'rufo'

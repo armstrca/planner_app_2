@@ -11,7 +11,7 @@
 class Weekly < ApplicationRecord
   belongs_to :planner, required: true, class_name: "Planner", foreign_key: "planner_id", counter_cache: true
 
-has_one  :owner, through: :planner, source: :owner
+  has_one  :owner, through: :planner, source: :owner
 
-has_one  :tldraw_input, through: :planner, source: :tldraw_inputs
+  has_one  :tldraw_input, through: :planner, source: :tldraw_inputs
 end

@@ -13,7 +13,7 @@
 ActiveRecord::Schema[7.0].define(version: 2024_02_21_034740) do
   create_table "dailies", force: :cascade do |t|
     t.integer "planner_id"
-    t.string "html"
+              t.string "html"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
