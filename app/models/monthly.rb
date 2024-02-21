@@ -9,7 +9,8 @@
 #  updated_at :datetime         not null
 #
 class Monthly < ApplicationRecord
-  belongs_to :planner, required: true, class_name: "Planner", foreign_key: "planner_id", counter_cache: true
+  belongs_to :planner, required: true, class_name: 'Planner', foreign_key: 'planner_id',
+                       counter_cache: true
 
   has_one :owner, through: :planner, source: :owner
 
