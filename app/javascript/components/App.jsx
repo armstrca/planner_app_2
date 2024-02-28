@@ -12,9 +12,13 @@ export default function App() {
     if (!editor) return;
     editor.updateInstanceState({ isFocused: false });
   }, [focused]);
+
   return (
     <div style={{ position: 'fixed', inset: 0 }}>
-      <Tldraw autoFocus={false} />
+      <Tldraw 
+      autoFocus={false}
+      persistenceKey='monthly' 
+      />
     </div>
   );
 }
