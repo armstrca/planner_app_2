@@ -4,6 +4,7 @@
 
 - ~~TLDRaw is now implemented, but need to make sure regular typing functionality of original setup is preserved~~
 - ~~Figure out what the models even are, NBD~~
+- Need to make sure canvas/TLDraw UI is always the same size as page content so that shapes/scribbles will always maintain position relative to page content
 - Preset template options
 - Blank template pages with drag and drop options
 - User profiles

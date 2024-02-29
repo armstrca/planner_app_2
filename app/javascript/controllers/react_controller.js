@@ -1,13 +1,16 @@
-import { Controller } from "@hotwired/stimulus";
-import React from "react";
-import { createRoot } from "react-dom/client";
-import App from "../components/App";
+import { Controller } from '@hotwired/stimulus';
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import App from '../components/App';
+import InlineExample from '../components/InlineExample';
 
 // Connects to data-controller="react"
 export default class extends Controller {
   connect() {
-    console.log("React controller connected");
-    const app = document.getElementById("app");
+    console.log('React controller connected');
+    const app = document.getElementById('app');
     createRoot(app).render(<App />);
+    // const inlineexample = document.getElementById('inlineexample');
+    // createRoot(inlineexample).render(<InlineExample />);
   }
 }
