@@ -1,4 +1,3 @@
-Found no changes, using resolution from the lockfile
 # == Schema Information
 #
 # Table name: dailies

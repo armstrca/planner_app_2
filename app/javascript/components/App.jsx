@@ -1,13 +1,13 @@
 // app/javascript/components/App.jsx
-import React, { useState } from 'react';
-import { Tldraw } from '@tldraw/tldraw';
+import React, { useState, useEffect } from 'react';
+import { Tldraw } from 'tldraw';
 import {
   DefaultQuickActions,
   DefaultQuickActionsContent,
   TldrawUiMenuItem,
-} from '@tldraw/tldraw';
+} from 'tldraw';
 import PowerOffIcon from './PowerOffIcon';
-import '@tldraw/tldraw/tldraw.css';
+import 'tldraw/tldraw.css';
 
 function CustomQuickActions({ onToggleTldraw }) {
   return (
@@ -22,6 +22,7 @@ function CustomQuickActions({ onToggleTldraw }) {
     </DefaultQuickActions>
   );
 }
+
 
 export default function App() {
   const [showTldraw, setShowTldraw] = useState(true);
@@ -51,7 +52,7 @@ export default function App() {
         />
       )}
       {!showTldraw && (
-        <div style={{ position: 'absolute', top: '5px', left: '5px' }}>
+        <div style={{ position: 'absolute', inset: 0, top: '5px', left: '5px' }}>
           <div className='tlui-buttons__horizontal'>
             <button
               onClick={toggleTldrawVisibility}
@@ -66,11 +67,12 @@ export default function App() {
                 borderRadius: '6px', // Adjust border-radius as needed
                 border: 'none',
                 height: '25px',
-                width: '25px'
+                width: '25px',
               }}
             >
-              <PowerOffIcon 
-              style={{ height: '20px', width: '20px', paddingLeft: '5px' }} />
+              <PowerOffIcon
+                style={{ height: '20px', width: '20px', paddingLeft: '5px' }}
+              />
             </button>
           </div>
         </div>
