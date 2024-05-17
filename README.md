@@ -1,19 +1,5 @@
-# TLDraw on Rails Template
+# Agenda app
 
-This is a base Ruby on Rails repository including a functioning TLDRaw
-installation and example view. It uses esbuild for bundling as well as stimulus.
+This is an app designed with tablet devices in mind which allows users to create and customize their own personal agendas.
 
-- Ruby version: `3.3.0`
-- Rails version: `7.0.4.3`
-
-How to use it:
-
-- Clone this template
-- Run `bundle install`
-- Run `yarn install`
-- Run `bin/dev` to see the TLDraw whiteboard base example on the root view
-- Customize as you like!
-
-Special thanks to [Deanout](https://github.com/Deanout) for his tutorial and
-[React/esbuild/Rails template](https://github.com/Deanout/react-esbuild-rails) on which this
-is based!
+TLDraw integration allows users to use standard whiteboard-app tools on their own agenda pages.
