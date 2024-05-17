@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Drag and Drop Prototype</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/@shopify/draggable@1.0.0-beta.11"></script>
+<style>
+  .draggable-source {
+    cursor: grab;
+  }
+  .draggable-source:active {
+    cursor: grabbing;
+  }
+  .draggable-placeholder {
+    border: 2px dashed #ccc;
+    min-height: 100px;
+  }
+</style>
+</head>
+<body class="bg-white">
+
+<div class="container mx-auto p-4">
+  <div id="toolbar" class="flex space-x-2 mb-4">
+    <!-- Example draggable objects -->
+    <div class="draggable-source bg-blue-500 text-white p-2 rounded shadow" draggable="true">Object 1</div>
+    <div class="draggable-source bg-green-500 text-white p-2 rounded shadow" draggable="true">Object 2</div>
+    <div class="draggable-source bg-red-500 text-white p-2 rounded shadow" draggable="true">Object 3</div>
+  </div>
+
+  <div id="grid" class="grid grid-cols-3 gap-4">
+    <!-- Placeholder boxes -->
+    <div class="draggable-placeholder bg-white p-2 rounded shadow"></div>
+    <div class="draggable-placeholder bg-white p-2 rounded shadow"></div>
+    <div class="draggable-placeholder bg-white p-2 rounded shadow"></div>
+    <div class="draggable-placeholder bg-white p-2 rounded shadow"></div>
+    <div class="draggable-placeholder bg-white p-2 rounded shadow"></div>
+    <div class="draggable-placeholder bg-white p-2 rounded shadow"></div>
+    <div class="draggable-placeholder bg-white p-2 rounded shadow"></div>
+    <div class="draggable-placeholder bg-white p-2 rounded shadow"></div>
+    <div class="draggable-placeholder bg-white p-2 rounded shadow"></div>
+  </div>
+</div>
+
+<script>
+  const containers = document.querySelectorAll('.draggable-placeholder');
+  const draggableSources = document.querySelectorAll('.draggable-source');
+
+  draggableSources.forEach(draggable => {
+    draggable.addEventListener('dragstart', function(event) {
+      event.dataTransfer.setData('text/plain', event.target.outerHTML);
+      event.dataTransfer.effectAllowed = 'move';
+    });
+  });
+
+  containers.forEach(container => {
+    container.addEventListener('dragover', function(event) {
+      event.preventDefault();
+      event.dataTransfer.dropEffect = 'move';
+      this.classList.add('bg-gray-200');
+    });
+
+    container.addEventListener('dragleave', function(event) {
+      this.classList.remove('bg-gray-200');
+    });
+
+    container.addEventListener('drop', function(event) {
+      event.preventDefault();
+      this.classList.remove('bg-gray-200');
+      const data = event.dataTransfer.getData('text/plain');
+      this.innerHTML = data;
+    });
+  });
+</script>
+
+</body>
+</html>

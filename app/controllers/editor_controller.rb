@@ -1,9 +1,21 @@
 class EditorController < ApplicationController
   def index
-    
+
   end
 
-  def new
+  def show
+
+  end
+
+  def daily_blank
+
+  end
+
+  def monthly_blank
+
+  end
+
+  def weekly_blank
 
   end
 
@@ -11,15 +23,11 @@ class EditorController < ApplicationController
 
   end
 
-  def edit
-
-  end
-
   def update
 
   end
 
-  def show
+  def edit
 
   end
 
