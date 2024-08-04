@@ -1,0 +1,246 @@
+<div>
+  <div>
+    <h1>
+      List of all planner entries
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new planner entry
+    </h2>
+
+    <form action="/insert_planner_entry" method="post">
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id">
+      </div>
+
+      <div>
+        <label for="planner_id_box">
+          Planner
+        </label>
+
+        <input type="text" id="planner_id_box" name="query_planner_id">
+      </div>
+
+      <div>
+        <label for="datetime_start_box">
+          Datetime start
+        </label>
+
+        <input type="datetime-local" id="datetime_start_box" name="query_datetime_start">
+      </div>
+
+      <div>
+        <label for="tldraw_input_id_box">
+          Tldraw input
+        </label>
+
+        <input type="text" id="tldraw_input_id_box" name="query_tldraw_input_id">
+      </div>
+
+      <div>
+        <label for="monthly_id_box">
+          Monthly
+        </label>
+
+        <input type="text" id="monthly_id_box" name="query_monthly_id">
+      </div>
+
+      <div>
+        <label for="daily_id_box">
+          Daily
+        </label>
+
+        <input type="text" id="daily_id_box" name="query_daily_id">
+      </div>
+
+      <div>
+        <label for="weekly_id_box">
+          Weekly
+        </label>
+
+        <input type="text" id="weekly_id_box" name="query_weekly_id">
+      </div>
+
+      <div>
+        <label for="extra_id_box">
+          Extra
+        </label>
+
+        <input type="text" id="extra_id_box" name="query_extra_id">
+      </div>
+
+      <div>
+        <label for="entry_content_box">
+          Entry content
+        </label>
+
+        <input type="text" id="entry_content_box" name="query_entry_content">
+      </div>
+
+      <div>
+        <label for="location_box">
+          Location
+        </label>
+
+        <input type="text" id="location_box" name="query_location">
+      </div>
+
+      <div>
+        <label for="datetime_end_box">
+          Datetime end
+        </label>
+
+        <input type="text" id="datetime_end_box" name="query_datetime_end">
+      </div>
+
+      <button>
+        Create planner entry
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          User
+        </th>
+
+        <th>
+          Planner
+        </th>
+
+        <th>
+          Datetime start
+        </th>
+
+        <th>
+          Tldraw input
+        </th>
+
+        <th>
+          Monthly
+        </th>
+
+        <th>
+          Daily
+        </th>
+
+        <th>
+          Weekly
+        </th>
+
+        <th>
+          Extra
+        </th>
+
+        <th>
+          Entry content
+        </th>
+
+        <th>
+          Location
+        </th>
+
+        <th>
+          Datetime end
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_planner_entries.each do |a_planner_entry| %>
+      <tr>
+        <td>
+          <%= a_planner_entry.id %>
+        </td>
+
+        <td>
+          <%= a_planner_entry.user_id %>
+        </td>
+
+        <td>
+          <%= a_planner_entry.planner_id %>
+        </td>
+
+        <td>
+          <%= a_planner_entry.datetime_start %>
+        </td>
+
+        <td>
+          <%= a_planner_entry.tldraw_input_id %>
+        </td>
+
+        <td>
+          <%= a_planner_entry.monthly_id %>
+        </td>
+
+        <td>
+          <%= a_planner_entry.daily_id %>
+        </td>
+
+        <td>
+          <%= a_planner_entry.weekly_id %>
+        </td>
+
+        <td>
+          <%= a_planner_entry.extra_id %>
+        </td>
+
+        <td>
+          <%= a_planner_entry.entry_content %>
+        </td>
+
+        <td>
+          <%= a_planner_entry.location %>
+        </td>
+
+        <td>
+          <%= a_planner_entry.datetime_end %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_planner_entry.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_planner_entry.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/planner_entries/<%= a_planner_entry.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

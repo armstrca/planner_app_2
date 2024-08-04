@@ -2,6 +2,25 @@
 #
 
 Rails.application.routes.draw do
+  # Routes for the Planner entry resource:
+
+  # CREATE
+  post("/insert_planner_entry", { :controller => "planner_entries", :action => "create" })
+          
+  # READ
+  get("/planner_entries", { :controller => "planner_entries", :action => "index" })
+  
+  get("/planner_entries/:path_id", { :controller => "planner_entries", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_planner_entry/:path_id", { :controller => "planner_entries", :action => "update" })
+  
+  # DELETE
+  get("/delete_planner_entry/:path_id", { :controller => "planner_entries", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the Tldraw input resource:
 
   # CREATE
