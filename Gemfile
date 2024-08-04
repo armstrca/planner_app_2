@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.3.4'
+ruby '3.2.5'
 
 gem 'bootsnap', require: false
 gem 'foreman'
@@ -14,6 +14,7 @@ gem 'rails', '~> 7.0.8'
 gem 'redis', '~> 4.0'
 # gem "bcrypt", "~> 3.1.7"
 # gem "image_processing", "~> 1.2"
+gem 'listen'
 gem 'mutex_m'
 gem 'rails_live_reload'
 gem 'ruby-lsp'
