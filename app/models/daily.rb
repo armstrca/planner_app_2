@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: dailies
@@ -9,7 +11,7 @@
 #  updated_at :datetime         not null
 #
 class Daily < ApplicationRecord
-  belongs_to :planner, required: true, class_name: "Planner", foreign_key: "planner_id", counter_cache: true
+  belongs_to :planner, required: true, class_name: 'Planner', foreign_key: 'planner_id', counter_cache: true
 
   has_one :owner, through: :planner, source: :owner
 

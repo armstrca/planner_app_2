@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
@@ -14,6 +16,7 @@ gem 'rails', '~> 7.0.8'
 gem 'redis', '~> 4.0'
 # gem "bcrypt", "~> 3.1.7"
 # gem "image_processing", "~> 1.2"
+gem 'htmlbeautifier'
 gem 'listen'
 gem 'mutex_m'
 gem 'rails_live_reload'

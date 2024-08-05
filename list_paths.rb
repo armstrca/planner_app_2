@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # this little guy just prints all the folder paths in the repo for ChatGPT to understand
 
 def ignore_folder?(path)

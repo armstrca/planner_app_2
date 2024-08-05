@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -27,7 +29,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
 
-  has_many :planners, class_name: "Planner", foreign_key: "user_id", dependent: :destroy
+  has_many :planners, class_name: 'Planner', foreign_key: 'user_id', dependent: :destroy
 
   has_many :monthlies, through: :planners, source: :monthlies
 

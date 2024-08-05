@@ -1,29 +1,17 @@
+# frozen_string_literal: true
+
 class WeeklyController < ApplicationController
-  def index
-    
-  end
+  def index; end
 
-  def new
+  def new; end
 
-  end
+  def create; end
 
-  def create
+  def edit; end
 
-  end
+  def update; end
 
-  def edit
+  def show; end
 
-  end
-
-  def update
-
-  end
-
-  def show
-
-  end
-
-  def destroy
-
-  end
+  def destroy; end
 end

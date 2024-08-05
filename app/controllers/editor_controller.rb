@@ -1,37 +1,21 @@
+# frozen_string_literal: true
+
 class EditorController < ApplicationController
-  def index
+  def index; end
 
-  end
+  def show; end
 
-  def show
+  def daily_blank; end
 
-  end
+  def monthly_blank; end
 
-  def daily_blank
+  def weekly_blank; end
 
-  end
+  def create; end
 
-  def monthly_blank
+  def update; end
 
-  end
+  def edit; end
 
-  def weekly_blank
-
-  end
-
-  def create
-
-  end
-
-  def update
-
-  end
-
-  def edit
-
-  end
-
-  def destroy
-
-  end
+  def destroy; end
 end
