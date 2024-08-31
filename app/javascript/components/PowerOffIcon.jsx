@@ -1,4 +1,3 @@
-// PowerOffIcon.jsx 
 import React from 'react';
 
 const PowerOffIcon = (props) => (

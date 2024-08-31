@@ -6,6 +6,7 @@ import {
   DefaultQuickActionsContent,
   TldrawUiMenuItem,
 } from 'tldraw';
+import EyeSlashIcon from './EyeSlashIcon';
 import PowerOffIcon from './PowerOffIcon';
 import 'tldraw/tldraw.css';
 
@@ -14,8 +15,8 @@ function CustomQuickActions({ onToggleTldraw }) {
     <DefaultQuickActions>
       <TldrawUiMenuItem
         id='toggle-tldraw'
-        label='Toggle Tldraw'
-        icon='hidden'
+        label='Disable TLDraw'
+        icon='toggle-on'
         onSelect={onToggleTldraw}
       />
       <DefaultQuickActionsContent />
@@ -25,42 +26,13 @@ function CustomQuickActions({ onToggleTldraw }) {
 
 export default function App() {
   const [showTldraw, setShowTldraw] = useState(true);
-  const editorRef = useRef(null); // Ref to hold the editor instance
-
-  useEffect(() => {
-    console.log('showTldraw:', showTldraw);
-    console.log('editor:', editorRef.current);
-
-    if (editorRef.current && showTldraw) {
-      editorRef.current.setCameraOptions = {
-        ...DEFAULT_CAMERA_OPTIONS,
-        isLocked: true,
-        wheelBehavior: 'pan',
-        panSpeed: 1,
-        zoomSpeed: 1,
-        zoomSteps: [0.1, 0.25, 0.5, 1, 2, 4, 8],
-        constraints: {
-          initialZoom: 'fit-max',
-          baseZoom: 'fit-max',
-          bounds: {
-            x: 0,
-            y: 0,
-            w: 1600,
-            h: 900,
-          },
-          behavior: { x: 'contain', y: 'contain' },
-          padding: { x: 100, y: 100 },
-          origin: { x: 0.5, y: 0.5 },
-        },
-      };
-    }
-  }, [showTldraw]);
 
   const toggleTldrawVisibility = () => {
     setShowTldraw((prev) => !prev);
+    // Adjust the styling of the #app div directly when toggling Tldraw visibility
     const appDiv = document.getElementById('app');
     if (appDiv) {
-      appDiv.style.zIndex = showTldraw ? '0' : '10';
+      appDiv.style.zIndex = showTldraw ? '0' : '10'; // Toggle zIndex based on the current state
     }
   };
 
@@ -77,25 +49,24 @@ export default function App() {
           autoFocus={false}
           persistenceKey='monthly'
           components={components}
-          onMount={(editor) => (editorRef.current = editor)} // Capture the editor instance
         />
       )}
       {!showTldraw && (
-        <div
-          style={{ position: 'absolute', inset: 0, top: '5px', left: '5px' }}
-        >
+        <div style={{ position: 'absolute', top: '5px', left: '5px' }}>
           <div className='tlui-buttons__horizontal'>
             <button
+              id='power-off-icon'
+              title='Enable TLDraw'
               onClick={toggleTldrawVisibility}
               className='tlui-icon tlui-icon__small tlui-button__icon'
               style={{
                 position: 'absolute',
                 top: '10px',
                 left: '10px',
-                zIndex: 20,
+                zIndex: 20, // Ensure the button is always clickable
                 backgroundColor: 'hsl(204, 16%, 94%)',
                 color: 'black',
-                borderRadius: '6px',
+                borderRadius: '6px', // Adjust border-radius as needed
                 border: 'none',
                 height: '25px',
                 width: '25px',
