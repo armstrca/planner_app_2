@@ -201,6 +201,7 @@ GEM
       oj (~> 3.13.12)
       rake (~> 13)
     hashdiff (1.1.1)
+    htmlbeautifier (1.4.3)
     http (5.2.0)
       addressable (~> 2.8)
       base64 (~> 0.1)
@@ -582,6 +583,7 @@ DEPENDENCIES
   faker
   foreman
   grade_runner
+  htmlbeautifier
   http
   importmap-rails
   jbuilder

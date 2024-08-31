@@ -39,7 +39,7 @@
     "examples.txt": false,
     "config/": false
   },
-  "files.insertFinalNewline": true,
+  "files.insertFinalNewline": false,
   "files.trimFinalNewlines": true,
   "screencastMode.onlyKeyboardShortcuts": true,
   "screencastMode.verticalOffset": 10,

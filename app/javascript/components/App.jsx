@@ -1,44 +1,13 @@
-// app/javascript/components/App.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Tldraw } from 'tldraw';
 import {
-  Tldraw,
-  TLCameraOptions,
-  BoxModel,
-  track,
-  useEditor,
-  useLocalStorageState,
+  DEFAULT_CAMERA_OPTIONS,
+  DefaultQuickActions,
+  DefaultQuickActionsContent,
+  TldrawUiMenuItem,
 } from 'tldraw';
 import PowerOffIcon from './PowerOffIcon';
 import 'tldraw/tldraw.css';
-
-const CAMERA_OPTIONS = {
-  isLocked: false,
-  wheelBehavior: 'pan',
-  panSpeed: 1,
-  zoomSpeed: 1,
-  zoomSteps: [0.1, 0.25, 0.5, 1, 2, 4, 8],
-  constraints: {
-    initialZoom: 'fit-max',
-    baseZoom: 'fit-max',
-    bounds: {
-      x: 0,
-      y: 0,
-      w: 1600,
-      h: 900,
-    },
-    behavior: { x: 'contain', y: 'contain' },
-    padding: { x: 100, y: 100 },
-    origin: { x: 0.5, y: 0.5 },
-  },
-};
-
-const BOUNDS_SIZES = {
-  a4: { x: 0, y: 0, w: 1050, h: 1485 },
-  landscape: { x: 0, y: 0, w: 1600, h: 900 },
-  portrait: { x: 0, y: 0, w: 900, h: 1600 },
-  square: { x: 0, y: 0, w: 900, h: 900 },
-};
-
 
 function CustomQuickActions({ onToggleTldraw }) {
   return (
@@ -46,7 +15,7 @@ function CustomQuickActions({ onToggleTldraw }) {
       <TldrawUiMenuItem
         id='toggle-tldraw'
         label='Toggle Tldraw'
-        icon='hidden' // Make sure this icon exists or omit this prop if it doesn't
+        icon='hidden'
         onSelect={onToggleTldraw}
       />
       <DefaultQuickActionsContent />
@@ -56,13 +25,42 @@ function CustomQuickActions({ onToggleTldraw }) {
 
 export default function App() {
   const [showTldraw, setShowTldraw] = useState(true);
+  const editorRef = useRef(null); // Ref to hold the editor instance
+
+  useEffect(() => {
+    console.log('showTldraw:', showTldraw);
+    console.log('editor:', editorRef.current);
+
+    if (editorRef.current && showTldraw) {
+      editorRef.current.setCameraOptions = {
+        ...DEFAULT_CAMERA_OPTIONS,
+        isLocked: true,
+        wheelBehavior: 'pan',
+        panSpeed: 1,
+        zoomSpeed: 1,
+        zoomSteps: [0.1, 0.25, 0.5, 1, 2, 4, 8],
+        constraints: {
+          initialZoom: 'fit-max',
+          baseZoom: 'fit-max',
+          bounds: {
+            x: 0,
+            y: 0,
+            w: 1600,
+            h: 900,
+          },
+          behavior: { x: 'contain', y: 'contain' },
+          padding: { x: 100, y: 100 },
+          origin: { x: 0.5, y: 0.5 },
+        },
+      };
+    }
+  }, [showTldraw]);
 
   const toggleTldrawVisibility = () => {
     setShowTldraw((prev) => !prev);
-    // Adjust the styling of the #app div directly when toggling Tldraw visibility
     const appDiv = document.getElementById('app');
     if (appDiv) {
-      appDiv.style.zIndex = showTldraw ? '0' : '10'; // Toggle zIndex based on the current state
+      appDiv.style.zIndex = showTldraw ? '0' : '10';
     }
   };
 
@@ -79,6 +77,7 @@ export default function App() {
           autoFocus={false}
           persistenceKey='monthly'
           components={components}
+          onMount={(editor) => (editorRef.current = editor)} // Capture the editor instance
         />
       )}
       {!showTldraw && (
@@ -93,10 +92,10 @@ export default function App() {
                 position: 'absolute',
                 top: '10px',
                 left: '10px',
-                zIndex: 20, // Ensure the button is always clickable
+                zIndex: 20,
                 backgroundColor: 'hsl(204, 16%, 94%)',
                 color: 'black',
-                borderRadius: '6px', // Adjust border-radius as needed
+                borderRadius: '6px',
                 border: 'none',
                 height: '25px',
                 width: '25px',
