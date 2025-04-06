@@ -1,0 +1,21 @@
+plugins:
+  - rubocop-rails
+
+inherit_gem:
+  rubocop-rails-omakase: rubocop.yml
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - node_modules/**/*
+    - public/**/*
+    - vendor/**/*
+
+Rails:
+  Enabled: true # enable rubocop-rails cops
+Bundler/DuplicatedGem:
+  Enabled: false # ignore duplicated gem errors because we will have duplicated gems when dual booting
+Style/MixinGrouping:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false

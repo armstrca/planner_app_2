@@ -12,16 +12,18 @@ gem 'jbuilder'
 gem 'jsbundling-rails'
 gem 'pg', '~> 1.5.6'
 gem 'puma', '~> 5.0'
+gem 'rack-cors'
 gem 'rails', '~> 7.0.8'
 gem 'redis', '~> 4.0'
-# gem "bcrypt", "~> 3.1.7"
-# gem "image_processing", "~> 1.2"
 gem 'htmlbeautifier'
 gem 'listen'
 gem 'mutex_m'
 gem 'rails_live_reload'
 gem 'ruby-lsp'
+gem 'vite_rails'
 
+# gem "bcrypt", "~> 3.1.7"
+# gem "image_processing", "~> 1.2"
 # gem "kredis"
 # gem "rack-mini-profiler"
 # gem "sassc-rails"
